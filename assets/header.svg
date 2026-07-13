@@ -1,119 +1,167 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="880" height="300" viewBox="0 0 880 300" fill="none" role="img" aria-label="Georgi Borisov — Software Developer, AI and Automation, Founder at Z-Innova">
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="300" viewBox="0 0 880 300" fill="none" role="img" aria-label="Georgi Borisov — Software Developer, AI & Automation, Founder at Z-Innova">
   <defs>
-    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/>
-      <stop offset="0.4" stop-color="#ffffff" stop-opacity="0"/>
-    </linearGradient>
-    <linearGradient id="scanFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#e80001" stop-opacity="0"/>
-      <stop offset="0.5" stop-color="#e80001" stop-opacity="0.09"/>
+    <radialGradient id="bloom" cx="0.74" cy="0.12" r="0.75">
+      <stop offset="0" stop-color="#e80001" stop-opacity="0.28"/>
+      <stop offset="0.45" stop-color="#e80001" stop-opacity="0.07"/>
       <stop offset="1" stop-color="#e80001" stop-opacity="0"/>
-    </linearGradient>
-    <radialGradient id="ambient" cx="0.82" cy="-0.1" r="0.9">
-      <stop offset="0" stop-color="#e80001" stop-opacity="0.20"/>
-      <stop offset="0.6" stop-color="#e80001" stop-opacity="0"/>
     </radialGradient>
-    <clipPath id="card">
-      <rect x="1" y="1" width="878" height="298" rx="16"/>
-    </clipPath>
-    <filter id="redGlow" x="-30%" y="-60%" width="160%" height="220%">
-      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#e80001" flood-opacity="0.55"/>
+    <radialGradient id="leftShade" cx="0.16" cy="0.5" r="0.55">
+      <stop offset="0" stop-color="#0d121c" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#0d121c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="name" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cdd0d6"/>
+    </linearGradient>
+    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#fe6555" flood-opacity="0.9"/>
+    </filter>
+    <filter id="softglow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#e80001" flood-opacity="0.6"/>
     </filter>
 
+    <!-- synapse paths (curved axons). ids used by traveling pulses. -->
+    <g id="edges-src">
+      <path id="eAE" d="M600,78 Q650,55 700,60"/>
+      <path id="eBF" d="M770,140 Q825,100 840,82"/>
+      <path id="eBI" d="M770,140 Q735,150 720,182"/>
+      <path id="eCI" d="M665,220 Q700,212 720,182"/>
+      <path id="eAJ" d="M600,78 Q595,114 620,150"/>
+      <path id="eIH" d="M720,182 Q769,186 818,218"/>
+      <path id="eEF" d="M700,60 Q770,56 840,82"/>
+    </g>
+
     <style>
-      :root { color-scheme: dark; }
-      .mono { font-family: "JetBrains Mono", "SFMono-Regular", "Cascadia Code", ui-monospace, Menlo, Consolas, monospace; }
+      .mono { font-family: "JetBrains Mono","SFMono-Regular","Cascadia Code",ui-monospace,Menlo,Consolas,monospace; }
+      .sans { font-family: "Outfit","Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
       text { dominant-baseline: middle; }
 
-      .prompt { fill: #fe6555; }
-      .cmd    { fill: #f7f7f9; }
-      .arrow  { fill: #e80001; }
-      .name   { fill: #ffffff; font-weight: 700; }
-      .role   { fill: #c3c4ca; }
-      .ok     { fill: #38bf73; }
-      .lead   { fill: #5b5e68; }
-      .key    { fill: #c3c4ca; }
-      .tb     { fill: #a5a7ad; }
-      .tbb    { fill: #fe6555; }
+      .breathe { transform-box: fill-box; transform-origin: center; animation: br 3.4s ease-in-out infinite; }
+      @keyframes br { 0%,100%{ opacity:.75; transform:scale(1) } 50%{ opacity:1; transform:scale(1.14) } }
+      .b2{animation-delay:-.6s}.b3{animation-delay:-1.2s}.b4{animation-delay:-1.8s}.b5{animation-delay:-2.4s}
+      .b6{animation-delay:-.9s}.b7{animation-delay:-1.5s}.b8{animation-delay:-2.1s}
 
-      /* sequential line reveal */
-      .reveal { opacity: 0; transform: translateX(-8px); animation: in .5s ease forwards; }
-      @keyframes in { to { opacity: 1; transform: translateX(0); } }
-      .d1 { animation-delay: .25s; }
-      .d2 { animation-delay: .70s; }
-      .d3 { animation-delay: 1.00s; }
-      .d4 { animation-delay: 1.55s; }
-      .d5 { animation-delay: 2.05s; }
-      .d6 { animation-delay: 2.35s; }
-      .d7 { animation-delay: 2.65s; }
+      .halo { transform-box: fill-box; transform-origin: center; animation: halo 3.4s ease-in-out infinite; }
+      @keyframes halo { 0%,100%{ transform:scale(1); opacity:.55 } 50%{ transform:scale(1.5); opacity:0 } }
+      .h2{animation-delay:-1.1s}.h3{animation-delay:-2.2s}
 
-      .cursor { fill: #fe6555; opacity: 0; animation: show 0s linear 2.9s forwards, blink 1.05s steps(1) 2.9s infinite; }
-      @keyframes show { to { opacity: 1; } }
-      @keyframes blink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
+      .shimmer { animation: sh 5s ease-in-out infinite; }
+      @keyframes sh { 0%,100%{ opacity:.55 } 50%{ opacity:.95 } }
 
-      .scan { animation: scan 6.5s linear infinite; }
-      @keyframes scan { 0% { transform: translateY(-120px); } 100% { transform: translateY(320px); } }
+      .cur { fill:#fe6555; animation: blink 1.05s steps(1) infinite; }
+      @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
 
-      .dotpulse { animation: dp 1.7s ease-in-out infinite; }
-      @keyframes dp { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+      .rev { opacity:0; transform: translateY(6px); animation: rin .6s ease forwards; }
+      @keyframes rin { to { opacity:1; transform:none } }
+      .r1{animation-delay:.15s}.r2{animation-delay:.4s}.r3{animation-delay:.7s}.r4{animation-delay:1s}.r5{animation-delay:1.3s}
 
       @media (prefers-reduced-motion: reduce) {
-        .reveal { opacity: 1; transform: none; animation: none; }
-        .cursor { opacity: 1; animation: none; }
-        .scan, .dotpulse { animation: none; }
+        .breathe,.halo,.shimmer,.cur,.rev { animation: none; opacity: 1; transform: none; }
+        .pulses { display: none; }
       }
     </style>
   </defs>
 
-  <!-- card -->
-  <rect x="1" y="1" width="878" height="298" rx="16" fill="#161b26" stroke="rgba(255,255,255,0.10)"/>
-  <g clip-path="url(#card)">
-    <rect x="1" y="1" width="878" height="298" fill="url(#ambient)"/>
-    <rect x="1" y="1" width="878" height="298" fill="url(#glow)"/>
-    <!-- moving scan line -->
-    <rect class="scan" x="1" y="1" width="878" height="90" fill="url(#scanFill)"/>
+  <!-- ground -->
+  <rect x="0" y="0" width="880" height="300" rx="12" fill="#0d121c"/>
+  <rect x="0" y="0" width="880" height="300" rx="12" fill="url(#bloom)"/>
 
-    <!-- title bar -->
-    <rect x="1" y="1" width="878" height="44" fill="rgba(255,255,255,0.02)"/>
-    <line x1="1" y1="45" x2="879" y2="45" stroke="rgba(255,255,255,0.06)"/>
-    <circle cx="26" cy="23" r="5.5" fill="#ff5f56"/>
-    <circle cx="46" cy="23" r="5.5" fill="#ffbd2e"/>
-    <circle cx="66" cy="23" r="5.5" fill="#27c93f"/>
-    <text class="mono tb" x="92" y="24" font-size="13">z-innova://runtime — <tspan class="tbb">georgi</tspan></text>
-    <circle class="dotpulse" cx="800" cy="23" r="4" fill="#38bf73"/>
-    <text class="mono ok" x="812" y="24" font-size="11" letter-spacing="1.5">ONLINE</text>
-
-    <!-- terminal body -->
-    <g class="mono" font-size="15.5">
-      <text class="reveal d1" x="30" y="82">
-        <tspan class="prompt">$ </tspan><tspan class="cmd">whoami</tspan>
-      </text>
-
-      <text class="reveal d2" x="30" y="112" filter="url(#redGlow)">
-        <tspan class="arrow">→ </tspan><tspan class="name">Georgi Borisov</tspan>
-      </text>
-      <text class="reveal d2" x="46" y="136" font-size="14">
-        <tspan class="role">Software Developer · AI &amp; Automation</tspan>
-      </text>
-      <text class="reveal d3" x="46" y="158" font-size="14">
-        <tspan class="role">Founder @ </tspan><tspan class="tbb">Z-Innova</tspan>
-      </text>
-
-      <text class="reveal d4" x="30" y="196">
-        <tspan class="prompt">$ </tspan><tspan class="cmd">./boot --services</tspan>
-      </text>
-
-      <text class="reveal d5" x="46" y="224">
-        <tspan class="ok">✓ </tspan><tspan class="key">RPA </tspan><tspan class="lead">·····················</tspan><tspan class="ok"> online</tspan>
-      </text>
-      <text class="reveal d6" x="46" y="250">
-        <tspan class="ok">✓ </tspan><tspan class="key">IA aplicada </tspan><tspan class="lead">·············</tspan><tspan class="ok"> online</tspan>
-      </text>
-      <text class="reveal d7" x="46" y="276">
-        <tspan class="ok">✓ </tspan><tspan class="key">Web a medida </tspan><tspan class="lead">············</tspan><tspan class="ok"> online</tspan>
-      </text>
-
-      <rect class="cursor" x="470" y="268" width="9" height="16"/>
-    </g>
+  <!-- ===== NEURAL NETWORK (right-biased) ===== -->
+  <!-- synapses: faint curved axons -->
+  <g class="shimmer" stroke="#e80001" fill="none" stroke-width="1" stroke-opacity="0.30">
+    <use href="#eAE"/><use href="#eBF"/><use href="#eBI"/><use href="#eCI"/><use href="#eAJ"/><use href="#eIH"/><use href="#eEF"/>
+    <path d="M600,78 Q551,55 502,62"/>
+    <path d="M600,78 Q545,88 515,122"/>
+    <path d="M770,140 Q811,128 852,150"/>
+    <path d="M770,140 Q752,95 700,60"/>
+    <path d="M665,220 Q612,226 560,200"/>
+    <path d="M665,220 Q741,236 818,218"/>
+    <path d="M665,220 Q628,185 620,150"/>
+    <path d="M515,122 Q567,122 620,150"/>
+    <path d="M515,122 Q524,161 560,200"/>
+    <path d="M720,182 Q670,180 620,150"/>
+    <path d="M852,150 Q850,184 818,218"/>
+    <path d="M852,150 Q860,116 840,82"/>
+    <path d="M620,150 Q578,168 560,200"/>
   </g>
+  <!-- left trailing axons, fainter for legibility -->
+  <g class="shimmer" stroke="#e80001" fill="none" stroke-width="1" stroke-opacity="0.14">
+    <path d="M560,200 Q506,200 452,175"/>
+    <path d="M452,175 Q414,142 400,110"/>
+    <path d="M400,110 Q350,102 300,120"/>
+    <path d="M400,110 Q362,162 352,214"/>
+  </g>
+
+  <!-- dendrite hints from somata -->
+  <g stroke="#e80001" fill="none" stroke-width="1.1" stroke-opacity="0.4" stroke-linecap="round">
+    <path d="M600,78 q-18,-20 -40,-18 q-14,1 -22,-10"/>
+    <path d="M600,78 q22,-16 30,-34"/>
+    <path d="M770,140 q26,10 34,32 q6,14 22,18"/>
+    <path d="M665,220 q-20,8 -26,26"/>
+  </g>
+
+  <!-- traveling signal pulses (comet head + trail) -->
+  <g class="pulses" fill="#ff8f80" filter="url(#glow)">
+    <circle r="2.6"><animateMotion dur="2.4s" begin="0s"   repeatCount="indefinite" rotate="auto"><mpath href="#eAE"/></animateMotion></circle>
+    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.4s" begin="0.12s" repeatCount="indefinite"><mpath href="#eAE"/></animateMotion></circle>
+
+    <circle r="2.6"><animateMotion dur="2.9s" begin="0.5s" repeatCount="indefinite"><mpath href="#eBF"/></animateMotion></circle>
+    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.9s" begin="0.62s" repeatCount="indefinite"><mpath href="#eBF"/></animateMotion></circle>
+
+    <circle r="2.6"><animateMotion dur="2.1s" begin="1s" repeatCount="indefinite"><mpath href="#eBI"/></animateMotion></circle>
+    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.1s" begin="1.12s" repeatCount="indefinite"><mpath href="#eBI"/></animateMotion></circle>
+
+    <circle r="2.6"><animateMotion dur="2.6s" begin="1.6s" repeatCount="indefinite"><mpath href="#eCI"/></animateMotion></circle>
+    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.6s" begin="1.72s" repeatCount="indefinite"><mpath href="#eCI"/></animateMotion></circle>
+
+    <circle r="2.6"><animateMotion dur="3.1s" begin="0.8s" repeatCount="indefinite"><mpath href="#eIH"/></animateMotion></circle>
+    <circle r="1.8" fill="#fe6555"><animateMotion dur="3.1s" begin="0.92s" repeatCount="indefinite"><mpath href="#eIH"/></animateMotion></circle>
+
+    <circle r="2.6"><animateMotion dur="2.7s" begin="2.1s" repeatCount="indefinite"><mpath href="#eEF"/></animateMotion></circle>
+    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.7s" begin="2.22s" repeatCount="indefinite"><mpath href="#eEF"/></animateMotion></circle>
+
+    <circle r="2.4"><animateMotion dur="2.5s" begin="1.4s" repeatCount="indefinite"><mpath href="#eAJ"/></animateMotion></circle>
+  </g>
+
+  <!-- background specks -->
+  <g fill="#fe6555" filter="url(#softglow)">
+    <circle class="breathe"    cx="700" cy="60"  r="1.6"/>
+    <circle class="breathe b2" cx="840" cy="82"  r="1.7"/>
+    <circle class="breathe b3" cx="852" cy="150" r="1.5"/>
+    <circle class="breathe b4" cx="818" cy="218" r="1.7"/>
+    <circle class="breathe b5" cx="720" cy="182" r="1.9"/>
+    <circle class="breathe b6" cx="620" cy="150" r="1.7"/>
+    <circle class="breathe b7" cx="560" cy="200" r="1.5"/>
+    <circle class="breathe b8" cx="515" cy="122" r="1.6"/>
+    <circle class="breathe b3" cx="502" cy="62"  r="1.3"/>
+    <circle class="breathe b5" cx="452" cy="175" r="1.2" opacity="0.6"/>
+    <circle class="breathe b2" cx="400" cy="110" r="1.2" opacity="0.5"/>
+    <circle class="breathe b7" cx="352" cy="214" r="1.1" opacity="0.4"/>
+    <circle class="breathe b4" cx="300" cy="120" r="1.1" opacity="0.35"/>
+  </g>
+
+  <!-- soma nodes: bright core + breathing halo ring -->
+  <g filter="url(#glow)">
+    <circle class="halo"    cx="600" cy="78"  r="4.2" fill="none" stroke="#fe6555" stroke-width="1.4"/>
+    <circle class="breathe" cx="600" cy="78"  r="4"   fill="#e80001"/>
+    <circle class="halo h2"    cx="770" cy="140" r="4.2" fill="none" stroke="#fe6555" stroke-width="1.4"/>
+    <circle class="breathe b3" cx="770" cy="140" r="4"   fill="#e80001"/>
+    <circle class="halo h3"    cx="665" cy="220" r="3.8" fill="none" stroke="#fe6555" stroke-width="1.3"/>
+    <circle class="breathe b6" cx="665" cy="220" r="3.6" fill="#e80001"/>
+  </g>
+
+  <!-- legibility shade behind the copy -->
+  <rect x="0" y="0" width="880" height="300" rx="12" fill="url(#leftShade)"/>
+
+  <!-- ===== LEFT: identity ===== -->
+  <text class="mono shimmer rev r1" x="44" y="58" font-size="12" fill="#fe6555" letter-spacing="3.5">// FULL-STACK · AI · AUTOMATION</text>
+  <text class="sans rev r2" x="42" y="106" font-size="43" font-weight="800" letter-spacing="-1" fill="url(#name)">Georgi Borisov</text>
+  <text class="sans rev r3" x="44" y="144" font-size="16" font-weight="500" fill="#c3c4ca">Software Developer · AI &amp; Automation</text>
+  <text class="sans rev r4" x="44" y="170" font-size="15" font-weight="600" fill="#a5a7ad">Founder @ <tspan fill="#fe6555" font-weight="700">Z-Innova</tspan></text>
+
+  <g class="mono rev r5" font-size="13">
+    <text x="44" y="206"><tspan fill="#e80001">&gt; </tspan><tspan fill="#c3c4ca">systems</tspan><tspan fill="#868890">.</tspan><tspan fill="#fe6555">online</tspan><tspan fill="#868890">()</tspan></text>
+    <rect class="cur" x="176" y="199" width="8" height="14"/>
+  </g>
+
+  <rect x="0.5" y="0.5" width="879" height="299" rx="12" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
 </svg>
