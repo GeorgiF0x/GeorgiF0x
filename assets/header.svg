@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="300" viewBox="0 0 880 300" fill="none" role="img" aria-label="Georgi Borisov — Software Developer, AI and Automation, Founder at Z-Innova">
+  <defs>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.05"/>
+      <stop offset="0.4" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="scanFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e80001" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#e80001" stop-opacity="0.09"/>
+      <stop offset="1" stop-color="#e80001" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="ambient" cx="0.82" cy="-0.1" r="0.9">
+      <stop offset="0" stop-color="#e80001" stop-opacity="0.20"/>
+      <stop offset="0.6" stop-color="#e80001" stop-opacity="0"/>
+    </radialGradient>
+    <clipPath id="card">
+      <rect x="1" y="1" width="878" height="298" rx="16"/>
+    </clipPath>
+    <filter id="redGlow" x="-30%" y="-60%" width="160%" height="220%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#e80001" flood-opacity="0.55"/>
+    </filter>
+
+    <style>
+      :root { color-scheme: dark; }
+      .mono { font-family: "JetBrains Mono", "SFMono-Regular", "Cascadia Code", ui-monospace, Menlo, Consolas, monospace; }
+      text { dominant-baseline: middle; }
+
+      .prompt { fill: #fe6555; }
+      .cmd    { fill: #f7f7f9; }
+      .arrow  { fill: #e80001; }
+      .name   { fill: #ffffff; font-weight: 700; }
+      .role   { fill: #c3c4ca; }
+      .ok     { fill: #38bf73; }
+      .lead   { fill: #5b5e68; }
+      .key    { fill: #c3c4ca; }
+      .tb     { fill: #a5a7ad; }
+      .tbb    { fill: #fe6555; }
+
+      /* sequential line reveal */
+      .reveal { opacity: 0; transform: translateX(-8px); animation: in .5s ease forwards; }
+      @keyframes in { to { opacity: 1; transform: translateX(0); } }
+      .d1 { animation-delay: .25s; }
+      .d2 { animation-delay: .70s; }
+      .d3 { animation-delay: 1.00s; }
+      .d4 { animation-delay: 1.55s; }
+      .d5 { animation-delay: 2.05s; }
+      .d6 { animation-delay: 2.35s; }
+      .d7 { animation-delay: 2.65s; }
+
+      .cursor { fill: #fe6555; opacity: 0; animation: show 0s linear 2.9s forwards, blink 1.05s steps(1) 2.9s infinite; }
+      @keyframes show { to { opacity: 1; } }
+      @keyframes blink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
+
+      .scan { animation: scan 6.5s linear infinite; }
+      @keyframes scan { 0% { transform: translateY(-120px); } 100% { transform: translateY(320px); } }
+
+      .dotpulse { animation: dp 1.7s ease-in-out infinite; }
+      @keyframes dp { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal { opacity: 1; transform: none; animation: none; }
+        .cursor { opacity: 1; animation: none; }
+        .scan, .dotpulse { animation: none; }
+      }
+    </style>
+  </defs>
+
+  <!-- card -->
+  <rect x="1" y="1" width="878" height="298" rx="16" fill="#161b26" stroke="rgba(255,255,255,0.10)"/>
+  <g clip-path="url(#card)">
+    <rect x="1" y="1" width="878" height="298" fill="url(#ambient)"/>
+    <rect x="1" y="1" width="878" height="298" fill="url(#glow)"/>
+    <!-- moving scan line -->
+    <rect class="scan" x="1" y="1" width="878" height="90" fill="url(#scanFill)"/>
+
+    <!-- title bar -->
+    <rect x="1" y="1" width="878" height="44" fill="rgba(255,255,255,0.02)"/>
+    <line x1="1" y1="45" x2="879" y2="45" stroke="rgba(255,255,255,0.06)"/>
+    <circle cx="26" cy="23" r="5.5" fill="#ff5f56"/>
+    <circle cx="46" cy="23" r="5.5" fill="#ffbd2e"/>
+    <circle cx="66" cy="23" r="5.5" fill="#27c93f"/>
+    <text class="mono tb" x="92" y="24" font-size="13">z-innova://runtime — <tspan class="tbb">georgi</tspan></text>
+    <circle class="dotpulse" cx="800" cy="23" r="4" fill="#38bf73"/>
+    <text class="mono ok" x="812" y="24" font-size="11" letter-spacing="1.5">ONLINE</text>
+
+    <!-- terminal body -->
+    <g class="mono" font-size="15.5">
+      <text class="reveal d1" x="30" y="82">
+        <tspan class="prompt">$ </tspan><tspan class="cmd">whoami</tspan>
+      </text>
+
+      <text class="reveal d2" x="30" y="112" filter="url(#redGlow)">
+        <tspan class="arrow">→ </tspan><tspan class="name">Georgi Borisov</tspan>
+      </text>
+      <text class="reveal d2" x="46" y="136" font-size="14">
+        <tspan class="role">Software Developer · AI &amp; Automation</tspan>
+      </text>
+      <text class="reveal d3" x="46" y="158" font-size="14">
+        <tspan class="role">Founder @ </tspan><tspan class="tbb">Z-Innova</tspan>
+      </text>
+
+      <text class="reveal d4" x="30" y="196">
+        <tspan class="prompt">$ </tspan><tspan class="cmd">./boot --services</tspan>
+      </text>
+
+      <text class="reveal d5" x="46" y="224">
+        <tspan class="ok">✓ </tspan><tspan class="key">RPA </tspan><tspan class="lead">·····················</tspan><tspan class="ok"> online</tspan>
+      </text>
+      <text class="reveal d6" x="46" y="250">
+        <tspan class="ok">✓ </tspan><tspan class="key">IA aplicada </tspan><tspan class="lead">·············</tspan><tspan class="ok"> online</tspan>
+      </text>
+      <text class="reveal d7" x="46" y="276">
+        <tspan class="ok">✓ </tspan><tspan class="key">Web a medida </tspan><tspan class="lead">············</tspan><tspan class="ok"> online</tspan>
+      </text>
+
+      <rect class="cursor" x="470" y="268" width="9" height="16"/>
+    </g>
+  </g>
+</svg>
