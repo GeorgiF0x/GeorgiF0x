@@ -36,17 +36,19 @@ Founder of [**Z-Innova**](https://www.z-innova.com) — practical RPA, applied A
 
 </div>
 
-<!-- ── Featured work ─────────────────────────────────────── -->
+<!--
+  ── Featured work (hidden for now) ─────────────────────────
+  Removed: the strongest projects (z-innova-landing-v2, estela-design-system,
+  wh40k-article-generator, tecozam-bills-web) are PRIVATE, so their links 404.
+  GitHub can only link/pin PUBLIC repos. Re-add this section once you make
+  some of them public (repo → Settings › General › Danger Zone › Change
+  visibility → Public), then use a table like:
 
-## Featured work
-
-| Project | What it is |
-| --- | --- |
-| **[tecozam-bills-web](https://github.com/GeorgiF0x/tecozam-bills-web)** · **[api](https://github.com/GeorgiF0x/tecozam-bills-api)** | Full-stack billing manager — Next.js + React + Recharts frontend over a Spring Boot 3.4 / Java 21 API. |
-| **[z-innova-landing-v2](https://github.com/GeorgiF0x/z-innova-landing-v2)** | Bilingual, SEO-first landing for Z-Innova. Next.js 16 App Router, hreflang, JSON-LD. |
-| **[tecozam-fleet-pwa](https://github.com/GeorgiF0x/tecozam-fleet-pwa)** | Mobile-first PWA for fleet operators and drivers. |
-| **[estela-design-system](https://github.com/GeorgiF0x/estela-design-system)** | Design system, brand assets and tokens for the Estela transport platform. |
-| **[wh40k-article-generator](https://github.com/GeorgiF0x/wh40k-article-generator)** | FastAPI + FAISS microservice generating Warhammer 40K wiki articles. |
+  ## Featured work
+  | Project | What it is |
+  | --- | --- |
+  | **[name](url)** | one-line description |
+-->
 
 <!-- ── Reach me ──────────────────────────────────────────── -->
 
