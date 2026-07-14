@@ -1,167 +1,143 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="880" height="300" viewBox="0 0 880 300" fill="none" role="img" aria-label="Georgi Borisov — Software Developer, AI &amp; Automation, Founder at Z-Innova">
   <defs>
-    <radialGradient id="bloom" cx="0.74" cy="0.12" r="0.75">
-      <stop offset="0" stop-color="#e80001" stop-opacity="0.28"/>
-      <stop offset="0.45" stop-color="#e80001" stop-opacity="0.07"/>
-      <stop offset="1" stop-color="#e80001" stop-opacity="0"/>
+    <radialGradient id="bg" cx="0.28" cy="0.4" r="1">
+      <stop offset="0" stop-color="#0c0c05"/><stop offset="0.6" stop-color="#050505"/><stop offset="1" stop-color="#000000"/>
     </radialGradient>
-    <radialGradient id="leftShade" cx="0.16" cy="0.5" r="0.55">
-      <stop offset="0" stop-color="#0d121c" stop-opacity="0.92"/>
-      <stop offset="1" stop-color="#0d121c" stop-opacity="0"/>
+    <radialGradient id="vig" cx="0.5" cy="0.5" r="0.7">
+      <stop offset="0.55" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.7"/>
     </radialGradient>
-    <linearGradient id="name" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#cdd0d6"/>
+    <linearGradient id="bufFill" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#55ead4"/><stop offset="1" stop-color="#f3e600"/>
     </linearGradient>
-    <filter id="glow" x="-120%" y="-120%" width="340%" height="340%">
-      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#fe6555" flood-opacity="0.9"/>
+
+    <filter id="glitch" x="-12%" y="-25%" width="124%" height="150%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.015 0.7" numOctaves="1" seed="3" result="n">
+        <animate attributeName="seed" values="3;8;1;6;3" dur="1s" calcMode="discrete" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feDisplacementMap in="SourceGraphic" in2="n" xChannelSelector="R" yChannelSelector="G" scale="0">
+        <animate attributeName="scale" values="0;0;0;0;13;1;0;0;7;0;0" keyTimes="0;0.3;0.45;0.63;0.65;0.68;0.7;0.85;0.87;0.9;1" dur="4s" repeatCount="indefinite"/>
+      </feDisplacementMap>
     </filter>
-    <filter id="softglow" x="-80%" y="-80%" width="260%" height="260%">
-      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#e80001" flood-opacity="0.6"/>
+    <filter id="softglow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ghost" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="0.7"/></filter>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="5" stitchTiles="stitch" result="g">
+        <animate attributeName="seed" values="5;11;2;17;8" dur="0.5s" calcMode="discrete" repeatCount="indefinite"/>
+      </feTurbulence>
+      <feColorMatrix in="g" type="matrix" values="0 0 0 0 0.95  0 0 0 0 0.9  0 0 0 0 0.05  0 0 0 0.4 0"/>
     </filter>
 
-    <!-- synapse paths (curved axons). ids used by traveling pulses. -->
-    <g id="edges-src">
-      <path id="eAE" d="M600,78 Q650,55 700,60"/>
-      <path id="eBF" d="M770,140 Q825,100 840,82"/>
-      <path id="eBI" d="M770,140 Q735,150 720,182"/>
-      <path id="eCI" d="M665,220 Q700,212 720,182"/>
-      <path id="eAJ" d="M600,78 Q595,114 620,150"/>
-      <path id="eIH" d="M720,182 Q769,186 818,218"/>
-      <path id="eEF" d="M700,60 Q770,56 840,82"/>
-    </g>
+    <clipPath id="card"><rect x="0" y="0" width="880" height="300" rx="4"/></clipPath>
+    <clipPath id="matrix"><rect x="576" y="84" width="152" height="112"/></clipPath>
+    <path id="nm" d="M58.908 108.0H52.76Q48.178 108.0 45.684 105.564Q43.19 103.128 43.19 98.54599999999999V80.16Q43.19 75.578 45.684 73.142Q48.178 70.70599999999999 52.76 70.70599999999999H58.908Q63.432 70.70599999999999 65.926 73.17099999999999Q68.42 75.636 68.42 80.16V81.9Q68.42 83.176 67.202 83.176H62.272000000000006Q61.054 83.176 61.054 81.9V80.508Q61.054 78.652 60.3 77.869Q59.546 77.086 57.69 77.086H53.92Q52.122 77.086 51.339 77.869Q50.556 78.652 50.556 80.508V98.198Q50.556 100.054 51.339 100.837Q52.122 101.62 53.92 101.62H57.69Q59.546 101.62 60.3 100.837Q61.054 100.054 61.054 98.198V94.544Q61.054 93.906 60.416 93.906H56.936Q55.718 93.906 55.718 92.688V88.744Q55.718 87.526 56.936 87.526H67.086Q68.42 87.526 68.42 88.86V98.54599999999999Q68.42 103.07 65.926 105.535Q63.432 108.0 58.908 108.0ZM96.76400000000001 108.0H77.798Q76.58 108.0 76.58 106.782V71.924Q76.58 70.70599999999999 77.798 70.70599999999999H96.76400000000001Q97.924 70.70599999999999 97.924 71.924V75.868Q97.924 77.086 96.76400000000001 77.086H84.642Q83.946 77.086 83.946 77.724V85.264Q83.946 85.902 84.642 85.902H94.56Q95.778 85.902 95.778 87.12V91.064Q95.778 92.282 94.56 92.282H84.642Q83.946 92.282 83.946 92.92V100.982Q83.946 101.62 84.642 101.62H96.76400000000001Q97.924 101.62 97.924 102.838V106.782Q97.924 108.0 96.76400000000001 108.0ZM115.712 101.62H119.83Q121.686 101.62 122.46900000000001 100.837Q123.25200000000001 100.054 123.25200000000001 98.198V80.508Q123.25200000000001 78.652 122.46900000000001 77.869Q121.686 77.086 119.83 77.086H115.712Q113.856 77.086 113.102 77.869Q112.348 78.652 112.348 80.508V98.198Q112.348 100.054 113.102 100.837Q113.856 101.62 115.712 101.62ZM121.048 108.0H114.552Q109.97 108.0 107.476 105.564Q104.982 103.128 104.982 98.54599999999999V80.16Q104.982 75.578 107.476 73.142Q109.97 70.70599999999999 114.552 70.70599999999999H121.048Q125.63 70.70599999999999 128.124 73.142Q130.618 75.578 130.618 80.16V98.54599999999999Q130.618 103.128 128.124 105.564Q125.63 108.0 121.048 108.0ZM144.92600000000002 108.0H139.996Q138.77800000000002 108.0 138.77800000000002 106.782V71.924Q138.77800000000002 70.70599999999999 139.996 70.70599999999999H153.8Q158.324 70.70599999999999 160.876 73.19999999999999Q163.428 75.69399999999999 163.428 80.218V84.74199999999999Q163.428 91.29599999999999 158.26600000000002 93.442V93.674L164.472 106.608Q164.994 108.0 163.48600000000002 108.0H158.788Q157.744 108.0 157.28 107.768Q156.816 107.536 156.526 106.782L150.726 94.254H146.84Q146.144 94.254 146.144 94.892V106.782Q146.144 108.0 144.92600000000002 108.0ZM146.782 88.338H152.466Q154.322 88.338 155.192 87.55499999999999Q156.062 86.77199999999999 156.062 85.032V80.508Q156.062 78.71 155.192 77.898Q154.322 77.086 152.466 77.086H146.782Q146.144 77.086 146.144 77.724V87.7Q146.144 88.338 146.782 88.338ZM186.84200000000004 108.0H180.69400000000002Q176.11200000000002 108.0 173.61800000000002 105.564Q171.12400000000002 103.128 171.12400000000002 98.54599999999999V80.16Q171.12400000000002 75.578 173.61800000000002 73.142Q176.11200000000002 70.70599999999999 180.69400000000002 70.70599999999999H186.84200000000004Q191.36600000000004 70.70599999999999 193.86000000000004 73.17099999999999Q196.35400000000004 75.636 196.35400000000004 80.16V81.9Q196.35400000000004 83.176 195.13600000000002 83.176H190.20600000000002Q188.98800000000003 83.176 188.98800000000003 81.9V80.508Q188.98800000000003 78.652 188.23400000000004 77.869Q187.48000000000002 77.086 185.62400000000002 77.086H181.854Q180.05600000000004 77.086 179.27300000000002 77.869Q178.49000000000004 78.652 178.49000000000004 80.508V98.198Q178.49000000000004 100.054 179.27300000000002 100.837Q180.05600000000004 101.62 181.854 101.62H185.62400000000002Q187.48000000000002 101.62 188.23400000000004 100.837Q188.98800000000003 100.054 188.98800000000003 98.198V94.544Q188.98800000000003 93.906 188.35000000000002 93.906H184.87000000000003Q183.65200000000002 93.906 183.65200000000002 92.688V88.744Q183.65200000000002 87.526 184.87000000000003 87.526H195.02000000000004Q196.35400000000004 87.526 196.35400000000004 88.86V98.54599999999999Q196.35400000000004 103.07 193.86000000000004 105.535Q191.36600000000004 108.0 186.84200000000004 108.0ZM212.17000000000002 71.924V106.782Q212.17000000000002 108.0 210.95200000000003 108.0H206.02200000000002Q204.80400000000003 108.0 204.80400000000003 106.782V71.924Q204.80400000000003 70.70599999999999 206.02200000000002 70.70599999999999H210.95200000000003Q212.17000000000002 70.70599999999999 212.17000000000002 71.924ZM243.16400000000004 101.852H249.66000000000005Q251.57400000000004 101.852 252.41500000000002 101.069Q253.25600000000003 100.286 253.25600000000003 98.488V95.124Q253.25600000000003 93.326 252.38600000000002 92.572Q251.51600000000005 91.818 249.54400000000004 91.818H243.16400000000004Q242.52600000000004 91.818 242.52600000000004 92.456V101.214Q242.52600000000004 101.852 243.16400000000004 101.852ZM243.16400000000004 85.844H249.08000000000004Q250.93600000000004 85.844 251.80600000000004 85.06099999999999Q252.67600000000004 84.27799999999999 252.67600000000004 82.48V80.218Q252.67600000000004 78.42 251.83500000000004 77.637Q250.99400000000006 76.854 249.13800000000003 76.854H243.16400000000004Q242.52600000000004 76.854 242.52600000000004 77.49199999999999V85.206Q242.52600000000004 85.844 243.16400000000004 85.844ZM235.16000000000005 106.782V71.924Q235.16000000000005 70.70599999999999 236.37800000000004 70.70599999999999H250.29800000000006Q254.88000000000005 70.70599999999999 257.374 73.142Q259.86800000000005 75.578 259.86800000000005 80.102V82.48Q259.86800000000005 87.41 255.28600000000006 88.86Q257.60600000000005 89.208 258.99800000000005 90.745Q260.39000000000004 92.282 260.39000000000004 95.124V98.604Q260.39000000000004 103.128 257.8960000000001 105.564Q255.40200000000004 108.0 250.87800000000004 108.0H236.37800000000004Q235.16000000000005 108.0 235.16000000000005 106.782ZM278.7000000000001 101.62H282.8180000000001Q284.6740000000001 101.62 285.4570000000001 100.837Q286.24000000000007 100.054 286.24000000000007 98.198V80.508Q286.24000000000007 78.652 285.4570000000001 77.869Q284.6740000000001 77.086 282.8180000000001 77.086H278.7000000000001Q276.8440000000001 77.086 276.0900000000001 77.869Q275.33600000000007 78.652 275.33600000000007 80.508V98.198Q275.33600000000007 100.054 276.0900000000001 100.837Q276.8440000000001 101.62 278.7000000000001 101.62ZM284.03600000000006 108.0H277.5400000000001Q272.9580000000001 108.0 270.46400000000006 105.564Q267.9700000000001 103.128 267.9700000000001 98.54599999999999V80.16Q267.9700000000001 75.578 270.46400000000006 73.142Q272.9580000000001 70.70599999999999 277.5400000000001 70.70599999999999H284.03600000000006Q288.6180000000001 70.70599999999999 291.1120000000001 73.142Q293.6060000000001 75.578 293.6060000000001 80.16V98.54599999999999Q293.6060000000001 103.128 291.1120000000001 105.564Q288.6180000000001 108.0 284.03600000000006 108.0ZM307.91400000000004 108.0H302.98400000000004Q301.766 108.0 301.766 106.782V71.924Q301.766 70.70599999999999 302.98400000000004 70.70599999999999H316.788Q321.312 70.70599999999999 323.86400000000003 73.19999999999999Q326.41600000000005 75.69399999999999 326.41600000000005 80.218V84.74199999999999Q326.41600000000005 91.29599999999999 321.254 93.442V93.674L327.46000000000004 106.608Q327.982 108.0 326.47400000000005 108.0H321.77600000000007Q320.732 108.0 320.26800000000003 107.768Q319.80400000000003 107.536 319.514 106.782L313.71400000000006 94.254H309.82800000000003Q309.13200000000006 94.254 309.13200000000006 94.892V106.782Q309.13200000000006 108.0 307.91400000000004 108.0ZM309.77000000000004 88.338H315.45400000000006Q317.31000000000006 88.338 318.18000000000006 87.55499999999999Q319.05000000000007 86.77199999999999 319.05000000000007 85.032V80.508Q319.05000000000007 78.71 318.18000000000006 77.898Q317.31000000000006 77.086 315.45400000000006 77.086H309.77000000000004Q309.13200000000006 77.086 309.13200000000006 77.724V87.7Q309.13200000000006 88.338 309.77000000000004 88.338ZM342.348 71.924V106.782Q342.348 108.0 341.13000000000005 108.0H336.20000000000005Q334.982 108.0 334.982 106.782V71.924Q334.982 70.70599999999999 336.20000000000005 70.70599999999999H341.13000000000005Q342.348 70.70599999999999 342.348 71.924ZM350.45000000000005 98.488V97.328Q350.45000000000005 96.11 351.66800000000006 96.11H356.59800000000007Q357.8160000000001 96.11 357.8160000000001 97.328V97.792Q357.8160000000001 99.996 358.68600000000004 100.80799999999999Q359.55600000000004 101.62 361.8760000000001 101.62H364.6020000000001Q366.86400000000003 101.62 367.76300000000003 100.75Q368.66200000000003 99.88 368.66200000000003 97.502V96.806Q368.66200000000003 95.124 367.29900000000004 94.225Q365.93600000000004 93.326 363.90600000000006 93.15199999999999Q361.8760000000001 92.978 359.52700000000004 92.485Q357.17800000000005 91.992 355.148 91.209Q353.11800000000005 90.426 351.75500000000005 88.13499999999999Q350.39200000000005 85.844 350.39200000000005 82.24799999999999V80.218Q350.39200000000005 75.69399999999999 352.9440000000001 73.19999999999999Q355.49600000000004 70.70599999999999 360.02000000000004 70.70599999999999H365.82000000000005Q370.40200000000004 70.70599999999999 372.95400000000006 73.19999999999999Q375.5060000000001 75.69399999999999 375.5060000000001 80.218V81.32Q375.5060000000001 82.538 374.28800000000007 82.538H369.35800000000006Q368.14000000000004 82.538 368.14000000000004 81.32V80.972Q368.14000000000004 78.71 367.2700000000001 77.898Q366.4000000000001 77.086 364.08000000000004 77.086H361.81800000000004Q359.44000000000005 77.086 358.59900000000005 77.985Q357.75800000000004 78.884 357.75800000000004 81.494V82.596Q357.75800000000004 85.322 362.51400000000007 85.728Q367.4440000000001 86.134 371.27200000000005 87.7Q373.3020000000001 88.57 374.6650000000001 90.803Q376.0280000000001 93.036 376.0280000000001 96.516V98.488Q376.0280000000001 103.012 373.4760000000001 105.506Q370.9240000000001 108.0 366.4000000000001 108.0H360.0780000000001Q355.5540000000001 108.0 353.00200000000007 105.506Q350.45000000000005 103.012 350.45000000000005 98.488ZM393.99000000000007 101.62H398.10800000000006Q399.96400000000006 101.62 400.74700000000007 100.837Q401.53000000000003 100.054 401.53000000000003 98.198V80.508Q401.53000000000003 78.652 400.74700000000007 77.869Q399.96400000000006 77.086 398.10800000000006 77.086H393.99000000000007Q392.13400000000007 77.086 391.38000000000005 77.869Q390.62600000000003 78.652 390.62600000000003 80.508V98.198Q390.62600000000003 100.054 391.38000000000005 100.837Q392.13400000000007 101.62 393.99000000000007 101.62ZM399.326 108.0H392.83000000000004Q388.24800000000005 108.0 385.754 105.564Q383.26000000000005 103.128 383.26000000000005 98.54599999999999V80.16Q383.26000000000005 75.578 385.754 73.142Q388.24800000000005 70.70599999999999 392.83000000000004 70.70599999999999H399.326Q403.9080000000001 70.70599999999999 406.40200000000004 73.142Q408.8960000000001 75.578 408.8960000000001 80.16V98.54599999999999Q408.8960000000001 103.128 406.40200000000004 105.564Q403.9080000000001 108.0 399.326 108.0ZM432.25200000000007 108.0H424.65400000000005Q423.43600000000004 108.0 423.20400000000006 106.782L414.21400000000006 72.03999999999999Q413.80800000000005 70.70599999999999 415.3740000000001 70.70599999999999H420.8260000000001Q421.98600000000005 70.70599999999999 422.2180000000001 71.924L428.30800000000005 100.46H428.5400000000001L434.63000000000005 71.924Q434.8620000000001 70.70599999999999 436.02200000000005 70.70599999999999H441.47400000000005Q442.92400000000004 70.70599999999999 442.63400000000007 72.03999999999999L433.64400000000006 106.782Q433.35400000000004 108.0 432.25200000000007 108.0Z"/>
 
     <style>
-      .mono { font-family: "JetBrains Mono","SFMono-Regular","Cascadia Code",ui-monospace,Menlo,Consolas,monospace; }
-      .sans { font-family: "Outfit","Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+      .rj { font-family: "Rajdhani","Arial Narrow","Roboto Condensed","DIN Condensed",system-ui,sans-serif; }
+      .mono { font-family: "JetBrains Mono","Cascadia Code",ui-monospace,Menlo,Consolas,monospace; }
       text { dominant-baseline: middle; }
 
-      .breathe { transform-box: fill-box; transform-origin: center; animation: br 3.4s ease-in-out infinite; }
-      @keyframes br { 0%,100%{ opacity:.75; transform:scale(1) } 50%{ opacity:1; transform:scale(1.14) } }
-      .b2{animation-delay:-.6s}.b3{animation-delay:-1.2s}.b4{animation-delay:-1.8s}.b5{animation-delay:-2.4s}
-      .b6{animation-delay:-.9s}.b7{animation-delay:-1.5s}.b8{animation-delay:-2.1s}
+      .ghc { animation: ghc 2.6s ease-in-out infinite; } @keyframes ghc { 0%,100%{transform:translate(-1.6px,0)} 50%{transform:translate(-2.4px,0)} }
+      .ghr { animation: ghr 2.6s ease-in-out infinite; } @keyframes ghr { 0%,100%{transform:translate(1.6px,0)} 50%{transform:translate(2.4px,0)} }
+      .beat { animation: beat 1.5s ease-in-out infinite; } @keyframes beat { 0%,100%{opacity:1} 50%{opacity:.25} }
+      .scan { animation: scan 4.6s linear infinite; } @keyframes scan { 0%{transform:translateY(-24px)} 100%{transform:translateY(300px)} }
+      .cur { fill:#f3e600; animation: blink 1s steps(1) infinite; } @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
 
-      .halo { transform-box: fill-box; transform-origin: center; animation: halo 3.4s ease-in-out infinite; }
-      @keyframes halo { 0%,100%{ transform:scale(1); opacity:.55 } 50%{ transform:scale(1.5); opacity:0 } }
-      .h2{animation-delay:-1.1s}.h3{animation-delay:-2.2s}
+      .col { animation: col 3s steps(5) infinite; } @keyframes col { from{transform:translateX(0)} to{transform:translateX(150px)} }
+      .lock { animation: lock 3.2s ease-in-out infinite; } @keyframes lock { 0%,100%{opacity:.55} 50%{opacity:1} }
+      .l2{animation-delay:-.6s}.l3{animation-delay:-1.2s}.l4{animation-delay:-1.8s}.l5{animation-delay:-2.4s}
+      .buf { animation: buf 3.6s ease-in-out infinite; } @keyframes buf { 0%{width:0} 70%{width:132px} 100%{width:132px} }
 
-      .shimmer { animation: sh 5s ease-in-out infinite; }
-      @keyframes sh { 0%,100%{ opacity:.55 } 50%{ opacity:.95 } }
-
-      .cur { fill:#fe6555; animation: blink 1.05s steps(1) infinite; }
-      @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
-
-      .rev { opacity:0; transform: translateY(6px); animation: rin .6s ease forwards; }
-      @keyframes rin { to { opacity:1; transform:none } }
-      .r1{animation-delay:.15s}.r2{animation-delay:.4s}.r3{animation-delay:.7s}.r4{animation-delay:1s}.r5{animation-delay:1.3s}
+      .rev { opacity:0; animation: rin .5s ease forwards; } @keyframes rin { to{opacity:1} }
+      .r1{animation-delay:.1s}.r2{animation-delay:.35s}.r3{animation-delay:.6s}.r4{animation-delay:.85s}.r5{animation-delay:1.1s}
 
       @media (prefers-reduced-motion: reduce) {
-        .breathe,.halo,.shimmer,.cur,.rev { animation: none; opacity: 1; transform: none; }
-        .pulses { display: none; }
+        .ghc{transform:translate(-1.6px,0)}.ghr{transform:translate(1.6px,0)}
+        .ghc,.ghr,.beat,.scan,.cur,.col,.lock,.buf,.rev{animation:none;opacity:1}
+        .buf{width:132px}
       }
     </style>
   </defs>
 
-  <!-- ground -->
-  <rect x="0" y="0" width="880" height="300" rx="12" fill="#0d121c"/>
-  <rect x="0" y="0" width="880" height="300" rx="12" fill="url(#bloom)"/>
+  <rect x="0" y="0" width="880" height="300" rx="4" fill="url(#bg)"/>
+  <g clip-path="url(#card)">
 
-  <!-- ===== NEURAL NETWORK (right-biased) ===== -->
-  <!-- synapses: faint curved axons -->
-  <g class="shimmer" stroke="#e80001" fill="none" stroke-width="1" stroke-opacity="0.30">
-    <use href="#eAE"/><use href="#eBF"/><use href="#eBI"/><use href="#eCI"/><use href="#eAJ"/><use href="#eIH"/><use href="#eEF"/>
-    <path d="M600,78 Q551,55 502,62"/>
-    <path d="M600,78 Q545,88 515,122"/>
-    <path d="M770,140 Q811,128 852,150"/>
-    <path d="M770,140 Q752,95 700,60"/>
-    <path d="M665,220 Q612,226 560,200"/>
-    <path d="M665,220 Q741,236 818,218"/>
-    <path d="M665,220 Q628,185 620,150"/>
-    <path d="M515,122 Q567,122 620,150"/>
-    <path d="M515,122 Q524,161 560,200"/>
-    <path d="M720,182 Q670,180 620,150"/>
-    <path d="M852,150 Q850,184 818,218"/>
-    <path d="M852,150 Q860,116 840,82"/>
-    <path d="M620,150 Q578,168 560,200"/>
+    <!-- thin HUD corner markers -->
+    <g stroke="#55ead4" stroke-width="1.2" fill="none" stroke-opacity="0.9">
+      <path d="M16,34 L16,16 L34,16"/><path d="M846,16 L864,16 L864,34"/>
+      <path d="M16,266 L16,284 L34,284"/><path d="M864,266 L864,284 L846,284"/>
+      <line x1="40" y1="16" x2="52" y2="16" stroke="#f3e600"/><line x1="828" y1="284" x2="840" y2="284" stroke="#f3e600"/>
+    </g>
+
+    <!-- top bar -->
+    <text class="rj rev r1" x="40" y="40" font-size="13" fill="#f3e600" letter-spacing="2.5" font-weight="600">&#9656; BREACH_PROTOCOL</text>
+    <text class="rj rev r1" x="228" y="40" font-size="12" fill="#4a4a4a" letter-spacing="2">SYS://Z-INNOVA</text>
+    <g class="rev r1">
+      <text class="rj" x="864" y="40" font-size="12.5" fill="#55ead4" text-anchor="end" letter-spacing="1.5">[ <tspan class="beat" fill="#f3e600">&#9679;</tspan> CONNECTED ] 01:00</text>
+    </g>
+
+    <!-- ===== NAME (Rajdhani, refined glitch) ===== -->
+    <g filter="url(#glitch)">
+      <use class="ghc" href="#nm" fill="#55ead4" filter="url(#ghost)" opacity="0.7"/>
+      <use class="ghr" href="#nm" fill="#c5003c" filter="url(#ghost)" opacity="0.7"/>
+      <use href="#nm" fill="#f3e600" filter="url(#softglow)"/>
+    </g>
+
+    <!-- accent rule + role -->
+    <g class="rev r2">
+      <rect x="42" y="130" width="120" height="2" fill="#f3e600"/>
+      <rect x="166" y="130" width="8" height="2" fill="#c5003c"/>
+    </g>
+    <text class="rj rev r3" x="42" y="154" font-size="16" fill="#e8e8e8" letter-spacing="2.5" font-weight="500">SOFTWARE DEVELOPER &#183; AI &amp; AUTOMATION</text>
+    <text class="rj rev r3" x="42" y="176" font-size="14" fill="#6a6a6a" letter-spacing="2">FOUNDER @ <tspan fill="#55ead4">Z-INNOVA</tspan></text>
+
+    <text class="mono rev r5" x="42" y="222" font-size="11.5" fill="#55ead4"><tspan fill="#f3e600">&gt;</tspan> icebreaker.exe :: uplink <tspan fill="#f3e600">[OK]</tspan></text>
+    <rect class="cur" x="272" y="216" width="7" height="13"/>
+
+    <!-- ===== BREACH PROTOCOL matrix (right) ===== -->
+    <text class="rj rev r4" x="576" y="72" font-size="11" fill="#55ead4" letter-spacing="3">CODE_MATRIX ///</text>
+    <g class="rev r4">
+      <g clip-path="url(#matrix)">
+        <!-- moving column scan -->
+        <rect class="col" x="578" y="84" width="30" height="112" fill="#55ead4" opacity="0.10"/>
+      </g>
+      <!-- hex cells -->
+      <g class="mono" font-size="12.5" text-anchor="middle" fill="#585858" letter-spacing="0.5">
+        <text x="594" y="96">1C</text><text x="624" y="96">E9</text><text x="654" y="96">55</text><text x="684" y="96">BD</text><text x="714" y="96">7A</text>
+        <text x="594" y="118">55</text><text x="624" y="118">BD</text><text class="lock" x="654" y="118" fill="#f3e600">FF</text><text x="684" y="118">1C</text><text x="714" y="118">E9</text>
+        <text x="594" y="140">BD</text><text class="lock l3" x="624" y="140" fill="#f3e600">7A</text><text x="654" y="140">1C</text><text x="684" y="140">55</text><text x="714" y="140">FF</text>
+        <text x="594" y="162">E9</text><text x="624" y="162">55</text><text x="654" y="162">7A</text><text class="lock l4" x="684" y="162" fill="#f3e600">FF</text><text x="714" y="162">BD</text>
+        <text class="lock l2" x="594" y="184" fill="#f3e600">FF</text><text x="624" y="184">1C</text><text x="654" y="184">BD</text><text x="684" y="184">E9</text><text class="lock l5" x="714" y="184" fill="#f3e600">55</text>
+      </g>
+      <!-- locked-cell brackets -->
+      <g stroke="#f3e600" stroke-width="1" fill="none" opacity="0.8">
+        <rect class="lock" x="644" y="109" width="20" height="17"/>
+        <rect class="lock l3" x="614" y="131" width="20" height="17"/>
+        <rect class="lock l4" x="674" y="153" width="20" height="17"/>
+        <rect class="lock l2" x="584" y="175" width="20" height="17"/>
+        <rect class="lock l5" x="704" y="175" width="20" height="17"/>
+      </g>
+      <!-- buffer bar -->
+      <text class="rj" x="576" y="212" font-size="10" fill="#6a6a6a" letter-spacing="2">BUFFER</text>
+      <rect x="620" y="207" width="134" height="9" fill="none" stroke="#55ead4" stroke-opacity="0.6"/>
+      <rect class="buf" x="621" y="208" width="132" height="7" fill="url(#bufFill)"/>
+      <text class="rj" x="782" y="72" font-size="10" fill="#c5003c" text-anchor="end" letter-spacing="1">DAEMON: UPLOAD</text>
+    </g>
+
+    <!-- katakana accent (cyberpunk / Night City) -->
+    <g class="mono" font-size="13" fill="#55ead4" opacity="0.18" text-anchor="middle">
+      <text x="856" y="120">&#12469;</text><text x="856" y="140">&#12452;</text><text x="856" y="160">&#12496;</text><text x="856" y="180">&#12540;</text>
+    </g>
+
+    <!-- fine scanlines + beam + grain + vignette -->
+    <g stroke="#000000" stroke-opacity="0.16" stroke-width="1">
+      <line x1="0" y1="5" x2="880" y2="5"/><line x1="0" y1="11" x2="880" y2="11"/><line x1="0" y1="17" x2="880" y2="17"/><line x1="0" y1="23" x2="880" y2="23"/><line x1="0" y1="29" x2="880" y2="29"/><line x1="0" y1="35" x2="880" y2="35"/><line x1="0" y1="41" x2="880" y2="41"/><line x1="0" y1="47" x2="880" y2="47"/><line x1="0" y1="53" x2="880" y2="53"/><line x1="0" y1="59" x2="880" y2="59"/><line x1="0" y1="65" x2="880" y2="65"/><line x1="0" y1="71" x2="880" y2="71"/><line x1="0" y1="77" x2="880" y2="77"/><line x1="0" y1="83" x2="880" y2="83"/><line x1="0" y1="89" x2="880" y2="89"/><line x1="0" y1="95" x2="880" y2="95"/><line x1="0" y1="101" x2="880" y2="101"/><line x1="0" y1="107" x2="880" y2="107"/><line x1="0" y1="113" x2="880" y2="113"/><line x1="0" y1="119" x2="880" y2="119"/><line x1="0" y1="125" x2="880" y2="125"/><line x1="0" y1="131" x2="880" y2="131"/><line x1="0" y1="137" x2="880" y2="137"/><line x1="0" y1="143" x2="880" y2="143"/><line x1="0" y1="149" x2="880" y2="149"/><line x1="0" y1="155" x2="880" y2="155"/><line x1="0" y1="161" x2="880" y2="161"/><line x1="0" y1="167" x2="880" y2="167"/><line x1="0" y1="173" x2="880" y2="173"/><line x1="0" y1="179" x2="880" y2="179"/><line x1="0" y1="185" x2="880" y2="185"/><line x1="0" y1="191" x2="880" y2="191"/><line x1="0" y1="197" x2="880" y2="197"/><line x1="0" y1="203" x2="880" y2="203"/><line x1="0" y1="209" x2="880" y2="209"/><line x1="0" y1="215" x2="880" y2="215"/><line x1="0" y1="221" x2="880" y2="221"/><line x1="0" y1="227" x2="880" y2="227"/><line x1="0" y1="233" x2="880" y2="233"/><line x1="0" y1="239" x2="880" y2="239"/><line x1="0" y1="245" x2="880" y2="245"/><line x1="0" y1="251" x2="880" y2="251"/><line x1="0" y1="257" x2="880" y2="257"/><line x1="0" y1="263" x2="880" y2="263"/><line x1="0" y1="269" x2="880" y2="269"/><line x1="0" y1="275" x2="880" y2="275"/><line x1="0" y1="281" x2="880" y2="281"/><line x1="0" y1="287" x2="880" y2="287"/><line x1="0" y1="293" x2="880" y2="293"/>
+    </g>
+    <rect class="scan" x="0" y="0" width="880" height="18" fill="#f3e600" opacity="0.035"/>
+    <rect x="0" y="0" width="880" height="300" filter="url(#grain)" opacity="0.4" style="mix-blend-mode:overlay"/>
+    <rect x="0" y="0" width="880" height="300" rx="4" fill="url(#vig)"/>
+    <rect x="0.5" y="0.5" width="879" height="299" rx="4" fill="none" stroke="#f3e600" stroke-opacity="0.2" stroke-width="1"/>
   </g>
-  <!-- left trailing axons, fainter for legibility -->
-  <g class="shimmer" stroke="#e80001" fill="none" stroke-width="1" stroke-opacity="0.14">
-    <path d="M560,200 Q506,200 452,175"/>
-    <path d="M452,175 Q414,142 400,110"/>
-    <path d="M400,110 Q350,102 300,120"/>
-    <path d="M400,110 Q362,162 352,214"/>
-  </g>
-
-  <!-- dendrite hints from somata -->
-  <g stroke="#e80001" fill="none" stroke-width="1.1" stroke-opacity="0.4" stroke-linecap="round">
-    <path d="M600,78 q-18,-20 -40,-18 q-14,1 -22,-10"/>
-    <path d="M600,78 q22,-16 30,-34"/>
-    <path d="M770,140 q26,10 34,32 q6,14 22,18"/>
-    <path d="M665,220 q-20,8 -26,26"/>
-  </g>
-
-  <!-- traveling signal pulses (comet head + trail) -->
-  <g class="pulses" fill="#ff8f80" filter="url(#glow)">
-    <circle r="2.6"><animateMotion dur="2.4s" begin="0s"   repeatCount="indefinite" rotate="auto"><mpath href="#eAE"/></animateMotion></circle>
-    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.4s" begin="0.12s" repeatCount="indefinite"><mpath href="#eAE"/></animateMotion></circle>
-
-    <circle r="2.6"><animateMotion dur="2.9s" begin="0.5s" repeatCount="indefinite"><mpath href="#eBF"/></animateMotion></circle>
-    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.9s" begin="0.62s" repeatCount="indefinite"><mpath href="#eBF"/></animateMotion></circle>
-
-    <circle r="2.6"><animateMotion dur="2.1s" begin="1s" repeatCount="indefinite"><mpath href="#eBI"/></animateMotion></circle>
-    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.1s" begin="1.12s" repeatCount="indefinite"><mpath href="#eBI"/></animateMotion></circle>
-
-    <circle r="2.6"><animateMotion dur="2.6s" begin="1.6s" repeatCount="indefinite"><mpath href="#eCI"/></animateMotion></circle>
-    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.6s" begin="1.72s" repeatCount="indefinite"><mpath href="#eCI"/></animateMotion></circle>
-
-    <circle r="2.6"><animateMotion dur="3.1s" begin="0.8s" repeatCount="indefinite"><mpath href="#eIH"/></animateMotion></circle>
-    <circle r="1.8" fill="#fe6555"><animateMotion dur="3.1s" begin="0.92s" repeatCount="indefinite"><mpath href="#eIH"/></animateMotion></circle>
-
-    <circle r="2.6"><animateMotion dur="2.7s" begin="2.1s" repeatCount="indefinite"><mpath href="#eEF"/></animateMotion></circle>
-    <circle r="1.8" fill="#fe6555"><animateMotion dur="2.7s" begin="2.22s" repeatCount="indefinite"><mpath href="#eEF"/></animateMotion></circle>
-
-    <circle r="2.4"><animateMotion dur="2.5s" begin="1.4s" repeatCount="indefinite"><mpath href="#eAJ"/></animateMotion></circle>
-  </g>
-
-  <!-- background specks -->
-  <g fill="#fe6555" filter="url(#softglow)">
-    <circle class="breathe"    cx="700" cy="60"  r="1.6"/>
-    <circle class="breathe b2" cx="840" cy="82"  r="1.7"/>
-    <circle class="breathe b3" cx="852" cy="150" r="1.5"/>
-    <circle class="breathe b4" cx="818" cy="218" r="1.7"/>
-    <circle class="breathe b5" cx="720" cy="182" r="1.9"/>
-    <circle class="breathe b6" cx="620" cy="150" r="1.7"/>
-    <circle class="breathe b7" cx="560" cy="200" r="1.5"/>
-    <circle class="breathe b8" cx="515" cy="122" r="1.6"/>
-    <circle class="breathe b3" cx="502" cy="62"  r="1.3"/>
-    <circle class="breathe b5" cx="452" cy="175" r="1.2" opacity="0.6"/>
-    <circle class="breathe b2" cx="400" cy="110" r="1.2" opacity="0.5"/>
-    <circle class="breathe b7" cx="352" cy="214" r="1.1" opacity="0.4"/>
-    <circle class="breathe b4" cx="300" cy="120" r="1.1" opacity="0.35"/>
-  </g>
-
-  <!-- soma nodes: bright core + breathing halo ring -->
-  <g filter="url(#glow)">
-    <circle class="halo"    cx="600" cy="78"  r="4.2" fill="none" stroke="#fe6555" stroke-width="1.4"/>
-    <circle class="breathe" cx="600" cy="78"  r="4"   fill="#e80001"/>
-    <circle class="halo h2"    cx="770" cy="140" r="4.2" fill="none" stroke="#fe6555" stroke-width="1.4"/>
-    <circle class="breathe b3" cx="770" cy="140" r="4"   fill="#e80001"/>
-    <circle class="halo h3"    cx="665" cy="220" r="3.8" fill="none" stroke="#fe6555" stroke-width="1.3"/>
-    <circle class="breathe b6" cx="665" cy="220" r="3.6" fill="#e80001"/>
-  </g>
-
-  <!-- legibility shade behind the copy -->
-  <rect x="0" y="0" width="880" height="300" rx="12" fill="url(#leftShade)"/>
-
-  <!-- ===== LEFT: identity ===== -->
-  <text class="mono shimmer rev r1" x="44" y="58" font-size="12" fill="#fe6555" letter-spacing="3.5">// FULL-STACK · AI · AUTOMATION</text>
-  <text class="sans rev r2" x="42" y="106" font-size="43" font-weight="800" letter-spacing="-1" fill="url(#name)">Georgi Borisov</text>
-  <text class="sans rev r3" x="44" y="144" font-size="16" font-weight="500" fill="#c3c4ca">Software Developer · AI &amp; Automation</text>
-  <text class="sans rev r4" x="44" y="170" font-size="15" font-weight="600" fill="#a5a7ad">Founder @ <tspan fill="#fe6555" font-weight="700">Z-Innova</tspan></text>
-
-  <g class="mono rev r5" font-size="13">
-    <text x="44" y="206"><tspan fill="#e80001">&gt; </tspan><tspan fill="#c3c4ca">systems</tspan><tspan fill="#868890">.</tspan><tspan fill="#fe6555">online</tspan><tspan fill="#868890">()</tspan></text>
-    <rect class="cur" x="176" y="199" width="8" height="14"/>
-  </g>
-
-  <rect x="0.5" y="0.5" width="879" height="299" rx="12" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
 </svg>

@@ -16,8 +16,7 @@ on:
   schedule:
     - cron: "15 1 * * *" # daily
   workflow_dispatch:
-  push:
-    branches: [main]
+  # No push trigger: runs only once METRICS_TOKEN exists, avoids failed runs.
 
 permissions:
   contents: write
