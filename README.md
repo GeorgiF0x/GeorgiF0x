@@ -8,6 +8,9 @@
 
 <img src="./assets/header.svg" alt="Georgi Borisov — Software Developer · AI & Automation · Founder @ Z-Innova" width="100%" />
 
+<!-- ── Cyberware diagnostics (self-hosted animated status capsules) ── -->
+<img src="./assets/cyberware.svg" alt="Cyberware diagnostics" width="100%" />
+
 <br />
 
 <!-- ── Intro ─────────────────────────────────────────────── -->

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="112" viewBox="0 0 880 112" fill="none" role="img" aria-label="Cyberware diagnostics: neural link, memory, thermal, uplink, firewall">
+  <defs>
+    <linearGradient id="therm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#55ead4"/><stop offset="0.6" stop-color="#f3e600"/><stop offset="1" stop-color="#c5003c"/>
+    </linearGradient>
+    <clipPath id="wv"><rect x="8" y="30" width="140" height="20"/></clipPath>
+    <style>
+      .mono { font-family:"JetBrains Mono","Cascadia Code",ui-monospace,Menlo,Consolas,monospace; }
+      .rj { font-family:"Rajdhani","Arial Narrow","Roboto Condensed",system-ui,sans-serif; }
+      text { dominant-baseline:middle; }
+      .blink { animation:blink 1.5s steps(1) infinite; } @keyframes blink { 0%,70%{opacity:1} 71%,100%{opacity:.2} }
+      .b2{animation-delay:-.5s}.b3{animation-delay:-1s}
+      .wave { animation:wave 2.2s linear infinite; } @keyframes wave { to { transform:translateX(-72px); } }
+      .mem { transform-box:fill-box; transform-origin:left center; animation:mem 3.4s ease-in-out infinite; } @keyframes mem { 0%,100%{transform:scaleX(.78)} 50%{transform:scaleX(.9)} }
+      .tmark { animation:tmark 4s ease-in-out infinite; } @keyframes tmark { 0%,100%{transform:translateX(0)} 50%{transform:translateX(14px)} }
+      .sig { animation:sig 1.4s steps(1) infinite; } @keyframes sig { 0%,100%{opacity:1} 50%{opacity:.25} }
+      .s2{animation-delay:.18s}.s3{animation-delay:.36s}.s4{animation-delay:.54s}.s5{animation-delay:.72s}
+      .shield { transform-box:fill-box; transform-origin:center; animation:shield 2.6s ease-in-out infinite; } @keyframes shield { 0%,100%{opacity:.65} 50%{opacity:1} }
+      .rev { opacity:0; animation:rin .5s ease forwards; } @keyframes rin { to{opacity:1} }
+      .r1{animation-delay:.1s}.r2{animation-delay:.22s}.r3{animation-delay:.34s}.r4{animation-delay:.46s}.r5{animation-delay:.58s}
+      @media (prefers-reduced-motion: reduce){ .blink,.wave,.mem,.tmark,.sig,.shield,.rev{animation:none;opacity:1;transform:none} }
+    </style>
+  </defs>
+
+  <text class="rj" x="24" y="14" font-size="10" fill="#55ead4" letter-spacing="2">&#9673; CYBERWARE.DIAGNOSTICS</text>
+  <text class="rj" x="856" y="14" font-size="10" fill="#6a6a6a" text-anchor="end" letter-spacing="1">ALL SYSTEMS <tspan fill="#7CFC00">NOMINAL</tspan></text>
+
+  <!-- 1 · NEURAL LINK -->
+  <g class="rev r1" transform="translate(24,24)">
+    <rect x="0" y="0" width="156" height="72" rx="4" fill="#090909" stroke="#55ead4" stroke-opacity="0.28"/>
+    <path d="M0,10 L0,0 L10,0" stroke="#f3e600" stroke-width="1.4" fill="none"/>
+    <text class="mono" x="12" y="14" font-size="8.5" fill="#8a8a8a" letter-spacing="1">NEURAL&#183;LINK</text>
+    <circle class="blink" cx="146" cy="11" r="2.6" fill="#7CFC00"/>
+    <g clip-path="url(#wv)">
+      <path class="wave" d="M8,40 L26,40 L32,30 L38,50 L46,40 L80,40 L86,30 L92,50 L100,40 L134,40 L140,30 L146,50 L154,40 L188,40" stroke="#55ead4" stroke-width="1.6" fill="none"/>
+    </g>
+    <text class="mono" x="12" y="62" font-size="9" fill="#55ead4">SYNC <tspan fill="#e8e8e8">100%</tspan> &#183; <tspan fill="#7CFC00">STABLE</tspan></text>
+  </g>
+
+  <!-- 2 · MEMORY -->
+  <g class="rev r2" transform="translate(192,24)">
+    <rect x="0" y="0" width="156" height="72" rx="4" fill="#090909" stroke="#55ead4" stroke-opacity="0.28"/>
+    <path d="M0,10 L0,0 L10,0" stroke="#f3e600" stroke-width="1.4" fill="none"/>
+    <text class="mono" x="12" y="14" font-size="8.5" fill="#8a8a8a" letter-spacing="1">MEMORY&#183;RAM</text>
+    <circle class="blink b2" cx="146" cy="11" r="2.6" fill="#f3e600"/>
+    <text class="rj" x="12" y="36" font-size="20" fill="#f3e600" font-weight="700">82<tspan font-size="11" fill="#8a8a8a">%</tspan></text>
+    <text class="mono" x="146" y="34" font-size="8.5" fill="#6a6a6a" text-anchor="end">14.2/16 GB</text>
+    <rect x="12" y="52" width="132" height="8" rx="1" fill="#141410" stroke="#55ead4" stroke-opacity="0.2"/>
+    <rect class="mem" x="12" y="52" width="132" height="8" rx="1" fill="#f3e600"/>
+  </g>
+
+  <!-- 3 · THERMAL -->
+  <g class="rev r3" transform="translate(360,24)">
+    <rect x="0" y="0" width="156" height="72" rx="4" fill="#090909" stroke="#55ead4" stroke-opacity="0.28"/>
+    <path d="M0,10 L0,0 L10,0" stroke="#f3e600" stroke-width="1.4" fill="none"/>
+    <text class="mono" x="12" y="14" font-size="8.5" fill="#8a8a8a" letter-spacing="1">THERMAL</text>
+    <circle class="blink b3" cx="146" cy="11" r="2.6" fill="#7CFC00"/>
+    <text class="rj" x="12" y="36" font-size="20" fill="#e8e8e8" font-weight="700">42<tspan font-size="11" fill="#8a8a8a">&#176;C</tspan></text>
+    <text class="mono" x="146" y="34" font-size="8.5" fill="#7CFC00" text-anchor="end">NOMINAL</text>
+    <rect x="12" y="52" width="132" height="8" rx="1" fill="url(#therm)"/>
+    <g class="tmark"><path d="M46,49 L52,49 L49,53 Z" fill="#ffffff"/><rect x="48" y="52" width="2" height="8" fill="#ffffff"/></g>
+  </g>
+
+  <!-- 4 · UPLINK -->
+  <g class="rev r4" transform="translate(528,24)">
+    <rect x="0" y="0" width="156" height="72" rx="4" fill="#090909" stroke="#55ead4" stroke-opacity="0.28"/>
+    <path d="M0,10 L0,0 L10,0" stroke="#f3e600" stroke-width="1.4" fill="none"/>
+    <text class="mono" x="12" y="14" font-size="8.5" fill="#8a8a8a" letter-spacing="1">UPLINK</text>
+    <circle class="blink" cx="146" cy="11" r="2.6" fill="#7CFC00"/>
+    <text class="rj" x="12" y="38" font-size="20" fill="#55ead4" font-weight="700">12<tspan font-size="11" fill="#8a8a8a">ms</tspan></text>
+    <g transform="translate(96,58)">
+      <rect class="sig"    x="0"  y="-6"  width="7" height="6"  fill="#55ead4"/>
+      <rect class="sig s2" x="10" y="-11" width="7" height="11" fill="#55ead4"/>
+      <rect class="sig s3" x="20" y="-16" width="7" height="16" fill="#55ead4"/>
+      <rect class="sig s4" x="30" y="-22" width="7" height="22" fill="#55ead4"/>
+      <rect class="sig s5" x="40" y="-28" width="7" height="28" fill="#f3e600"/>
+    </g>
+  </g>
+
+  <!-- 5 · ICE / FIREWALL -->
+  <g class="rev r5" transform="translate(696,24)">
+    <rect x="0" y="0" width="160" height="72" rx="4" fill="#090909" stroke="#55ead4" stroke-opacity="0.28"/>
+    <path d="M0,10 L0,0 L10,0" stroke="#f3e600" stroke-width="1.4" fill="none"/>
+    <text class="mono" x="12" y="14" font-size="8.5" fill="#8a8a8a" letter-spacing="1">ICE&#183;FIREWALL</text>
+    <circle class="blink b2" cx="150" cy="11" r="2.6" fill="#7CFC00"/>
+    <g class="shield" transform="translate(34,44)">
+      <path d="M0,-16 L15,-10 L15,4 Q15,15 0,20 Q-15,15 -15,4 L-15,-10 Z" fill="none" stroke="#55ead4" stroke-width="1.6"/>
+      <path d="M-6,1 L-1,7 L8,-6" fill="none" stroke="#7CFC00" stroke-width="2"/>
+    </g>
+    <text class="mono" x="60" y="38" font-size="10" fill="#7CFC00">ACTIVE</text>
+    <text class="mono" x="60" y="54" font-size="8.5" fill="#6a6a6a">0 INTRUSIONS</text>
+  </g>
+</svg>
